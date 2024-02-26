@@ -25,7 +25,12 @@ jobs:
       
       #Setup insomnia inso version 8.6.1
       - name: Install Inso
-        run: npm install -g insomnia-inso@8.6.1
+        run: |
+          wget -p https://github.com/Kong/insomnia/releases/download/lib%408.6.1/inso-linux-8.6.1.tar.xz -O inso.tar.xz
+          tar -xvf inso.tar.xz
+          chmod +x inso
+          mv inso /usr/local/bin/inso
+
 
       - name: Yq Version
         run: yq --version
