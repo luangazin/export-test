@@ -23,10 +23,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
       
-      - name: Setup Insomnia CLI
-        uses: kong/setup-inso@v1
-        with:
-          inso-version: 8.6.1
+      #Setup insomnia inso version 8.6.1
+      - name: Install Inso
+        run: npm install -g insomnia-inso@8.6.1
 
       - name: Yq Version
         run: yq --version
