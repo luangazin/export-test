@@ -28,21 +28,19 @@ jobs:
           tar -xvf inso.tar.xz
           chmod +x inso
           mv inso /usr/local/bin/inso
+          rm inso.tar.xz
 
 
       - name: Yq Version
         run: yq --version
 
       # Runs a single command using the runners shell
-      - name: Configure executable
-        run: chmod +x ./generate.sh
+      # - name: Configure executable
+      #   run: chmod +x ./generate.sh
 
       # Runs a set of commands using the runners shell
-      - name: Run a script
-        run: ./generate.sh
-
-      - name: Show content
-        run: cat kong-kubernetes.yaml
+      # - name: Run a script
+      #   run: ./generate.sh
 
       - name: Run embeeded script
         run: |
@@ -80,3 +78,6 @@ jobs:
 
           #Cleaning up
           rm service.yaml kong.yaml
+
+      - name: Show content
+        run: cat kong-kubernetes.yaml
